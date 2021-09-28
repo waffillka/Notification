@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Bookcrossing\Bookcrossing.Contracts\Abstractions\BrokerMessage\IBrokerMessage.cs" Link="Abstractions\BrokerModels\IBrokerMessage.cs" />
+    <Compile Include="..\..\..\Bookcrossing\Bookcrossing.Contracts\DataTransferObjects\Broker\BrokerMessage.cs" Link="DataTransferObject\Broker\BrokerMessage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstractions\BrokerModels\" />
+    <Folder Include="DataTransferObject\Broker\" />
+  </ItemGroup>
+
+</Project>
