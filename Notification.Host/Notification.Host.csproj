@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Notification.Service\Notification.Application.csproj" />
+    <ProjectReference Include="..\Notification.Application\Notification.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
