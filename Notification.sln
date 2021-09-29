@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notification.Host", "Notification.Host\Notification.Host.csproj", "{1D5CC19F-FC81-4BB6-A26B-0DBCDB7CAF1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification.Contracts", "Notification.Contracts\Notification.Contracts.csproj", "{793C01C5-A9A6-4B9A-BBF9-54C946761E1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notification.Contracts", "Notification.Contracts\Notification.Contracts.csproj", "{793C01C5-A9A6-4B9A-BBF9-54C946761E1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification.Service", "Notification.Service\Notification.Service.csproj", "{14DE50A7-AC79-4CAC-A01C-C146F4D46F23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notification.Application", "Notification.Application\Notification.Application.csproj", "{14DE50A7-AC79-4CAC-A01C-C146F4D46F23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
