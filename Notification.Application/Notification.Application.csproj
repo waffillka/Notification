@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Notification.Contracts\Notification.Contracts.csproj" />
+    <ProjectReference Include="..\Notification.Data\Notification.Data.csproj" />
   </ItemGroup>
 
 </Project>

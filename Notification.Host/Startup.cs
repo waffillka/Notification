@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Notification.Contracts.Settings.MongoDb;
 using Notification.Service.Configuration;
 
 namespace Notification.Host
@@ -23,6 +25,9 @@ namespace Notification.Host
         {
             services.AddNotificationService();
             //services.AddNotificationData();
+
+            services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
+            services.AddSingleton<IDatabaseSettings>(x => x.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
