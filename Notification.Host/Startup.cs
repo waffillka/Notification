@@ -22,6 +22,8 @@ namespace Notification.Host
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddNotificationService();
+            //services.AddNotificationData();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
