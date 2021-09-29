@@ -4,10 +4,10 @@ using Notification.Data.Entities;
 
 namespace Notification.Data.Repositories
 {
-    public class UserRepository : MingoProvider<User>
+    class BookRepository : MingoProvider<Book>
     {
-        public UserRepository(IDatabaseSettings settings)
-            : base(settings)
+        public BookRepository(IDatabaseSettings settings)
+               : base(settings)
         { }
     }
 }
