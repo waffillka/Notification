@@ -15,7 +15,7 @@ namespace Notification.Data.Configuration
             var currentAssembly = typeof(DependenciesConfiguration);
 
             services.Scan(scan => scan.FromAssembliesOf(currentAssembly)
-                                      .AddClasses(classes => classes.AssignableTo(typeof(MingoProvider<>)))
+                                      .AddClasses(classes => classes.AssignableTo(typeof(IMongoProvider<>)))
                                       .AsImplementedInterfaces()
                                       .WithTransientLifetime()
                          );
