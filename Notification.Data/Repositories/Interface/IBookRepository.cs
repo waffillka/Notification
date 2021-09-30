@@ -1,6 +1,9 @@
-﻿namespace Notification.Data.Repositories.Interface
+﻿using Notification.Data.DBContext;
+using Notification.Data.Entities;
+
+namespace Notification.Data.Repositories.Interface
 {
-    interface IBookRepository
+    public interface IBookRepository : IMongoProvider<Book>
     {
     }
 }
