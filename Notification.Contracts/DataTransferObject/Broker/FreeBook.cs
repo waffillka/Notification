@@ -3,9 +3,8 @@ using System;
 
 namespace Notification.Contracts.DataTransferObject.Broker
 {
-    public class Unsubscription : IUnsubscription
+    public class FreeBook : IFreeBook
     {
-        public Guid UserId { get; set; }
         public Guid BookId { get; set; }
     }
 }
