@@ -22,6 +22,7 @@ namespace Notification.Service.Configuration
         {
             services.AddMassTransit(x =>
             {
+                x.AddConsumer<FreeBookConsumer>();
                 x.AddConsumer<SubscriptionConsumer>();
                 x.AddConsumer<UnsubscriptionConsumer>();
                 x.SetKebabCaseEndpointNameFormatter();
