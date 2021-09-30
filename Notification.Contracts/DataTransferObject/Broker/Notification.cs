@@ -3,7 +3,7 @@ using System;
 
 namespace Notification.Contracts.DataTransferObject.Broker
 {
-    public class FreeBook : IFreeBook
+    public class Notification : INotification
     {
         public Guid BookId { get; set; }
     }

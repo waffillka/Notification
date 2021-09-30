@@ -2,7 +2,7 @@
 
 namespace Notification.Contracts.Abstractions.Broker
 {
-    public interface IFreeBook
+    public interface INotification
     {
         Guid BookId { get; set; }
     }

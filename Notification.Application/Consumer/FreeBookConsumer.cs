@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Consumer
 {
-    public class FreeBookConsumer : LoggerConsumer<FreeBook>
+    public class FreeBookConsumer : LoggerConsumer<Contracts.DataTransferObject.Broker.Notification>
     {
         private readonly IMediator _mediator;
 
@@ -17,7 +17,7 @@ namespace Notification.Application.Consumer
             _mediator = mediator;
         }
 
-        public async override Task ConsumeInternalAsync(ConsumeContext<FreeBook> context)
+        public async override Task ConsumeInternalAsync(ConsumeContext<Contracts.DataTransferObject.Broker.Notification> context)
         {
             _mediator.Send(new FreeBookCommand(context.Message));
         }

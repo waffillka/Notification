@@ -9,12 +9,12 @@ namespace Notification.Application.Commands.Broker
 {
     public class FreeBookCommand : IRequest
     {
-        public FreeBookCommand(FreeBook freeBook)
+        public FreeBookCommand(Contracts.DataTransferObject.Broker.Notification freeBook)
         {
             FreeBook = freeBook;
         }
 
-        public FreeBook FreeBook { get; set; }
+        public Contracts.DataTransferObject.Broker.Notification FreeBook { get; set; }
     }
 
     public class FreeBookCommandHandler : LoggerRequestHandler<FreeBookCommand, Unit>
