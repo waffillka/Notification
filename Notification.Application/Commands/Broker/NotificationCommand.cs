@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Commands.Broker
 {
-    public class FreeBookCommand : IRequest
+    public class NotificationCommand : IRequest
     {
-        public FreeBookCommand(Contracts.DataTransferObject.Broker.Notification freeBook)
+        public NotificationCommand(Contracts.DataTransferObject.Broker.Notification freeBook)
         {
             FreeBook = freeBook;
         }
@@ -17,13 +17,13 @@ namespace Notification.Application.Commands.Broker
         public Contracts.DataTransferObject.Broker.Notification FreeBook { get; set; }
     }
 
-    public class FreeBookCommandHandler : LoggerRequestHandler<FreeBookCommand, Unit>
+    public class FreeBookCommandHandler : LoggerRequestHandler<NotificationCommand, Unit>
     {
         public FreeBookCommandHandler(ILoggerManager logger)
             : base(logger)
         { }
 
-        public async override Task<Unit> HandleInternalAsync(FreeBookCommand request, CancellationToken cancellationToken)
+        public async override Task<Unit> HandleInternalAsync(NotificationCommand request, CancellationToken cancellationToken)
         {
             //...
             return Unit.Value;

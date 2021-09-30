@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Consumer
 {
-    public class FreeBookConsumer : LoggerConsumer<Contracts.DataTransferObject.Broker.Notification>
+    public class NotificationConsumer : LoggerConsumer<Contracts.DataTransferObject.Broker.Notification>
     {
         private readonly IMediator _mediator;
 
-        public FreeBookConsumer(IMediator mediator, ILoggerManager logger)
+        public NotificationConsumer(IMediator mediator, ILoggerManager logger)
             : base(logger)
         {
             _mediator = mediator;
@@ -19,7 +19,7 @@ namespace Notification.Application.Consumer
 
         public async override Task ConsumeInternalAsync(ConsumeContext<Contracts.DataTransferObject.Broker.Notification> context)
         {
-            _mediator.Send(new FreeBookCommand(context.Message));
+            _mediator.Send(new NotificationCommand(context.Message));
         }
     }
 
