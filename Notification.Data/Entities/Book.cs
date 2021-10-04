@@ -10,6 +10,6 @@ namespace Notification.Data.Entities
         public string ISBN { get; set; }
         public ICollection<string> Authors { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public ICollection<Guid> Users { get; set; }
     }
 }
