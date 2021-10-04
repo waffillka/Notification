@@ -10,7 +10,7 @@ namespace Notification.Service.Configuration
 {
     public static class DependenciesConfiguration
     {
-        public static void AddNotificationService(this IServiceCollection services)
+        public static void AddNotificationApplication(this IServiceCollection services)
         {
             services.AddMassTransit();
             services.RegisterMapping();
