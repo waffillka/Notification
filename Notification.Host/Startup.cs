@@ -26,7 +26,7 @@ namespace Notification.Host
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddNotificationService();
+            services.AddNotificationApplication();
             services.AddNotificationData();
 
             services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
