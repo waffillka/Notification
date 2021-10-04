@@ -43,8 +43,7 @@ namespace Notification.Application.Commands.Mail
             message.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
                 Text = $"{request.Book.Name} is free!\n" +
-                $"Dear {request.User.UserName}, at the moment the {request.Book.Name} is free, you can take. \n" +
-                $"You have a 15 minute head start because you are next in line. "
+                $"Dear {request.User.UserName}, at the moment the {request.Book.Name} is free, you can take."
             };
 
             using (var client = new SmtpClient())
