@@ -2,7 +2,6 @@
 using MediatR;
 using Notification.Application.Commands.Broker;
 using Notification.Application.Logger;
-using Notification.Contracts.DataTransferObject.Broker;
 using System.Threading.Tasks;
 
 namespace Notification.Application.Consumer

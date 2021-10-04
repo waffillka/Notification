@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Notification.Application.Handler;
 using Notification.Application.Logger;
-using Notification.Contracts.DataTransferObject.Broker;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,9 +16,9 @@ namespace Notification.Application.Commands.Broker
         public Contracts.DataTransferObject.Broker.Notification FreeBook { get; set; }
     }
 
-    public class FreeBookCommandHandler : LoggerRequestHandler<NotificationCommand, Unit>
+    public class NotificationHandler : LoggerRequestHandler<NotificationCommand, Unit>
     {
-        public FreeBookCommandHandler(ILoggerManager logger)
+        public NotificationHandler(ILoggerManager logger)
             : base(logger)
         { }
 
