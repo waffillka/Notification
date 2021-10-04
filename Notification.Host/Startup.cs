@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Notification.Application.Logger;
 using Notification.Contracts.Settings.Mail;
@@ -30,10 +29,7 @@ namespace Notification.Host
             services.AddNotificationData();
 
             services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
-            services.AddSingleton<IDatabaseSettings>(x => x.GetRequiredService<IOptions<DatabaseSettings>>().Value);
-
             services.Configure<EmailSettings>(Configuration.GetSection(nameof(EmailSettings)));
-            services.AddSingleton<IEmailSettings>(x => x.GetRequiredService<IOptions<EmailSettings>>().Value);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

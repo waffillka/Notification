@@ -1,5 +1,6 @@
 ﻿using MailKit.Net.Smtp;
 using MediatR;
+using Microsoft.Extensions.Options;
 using MimeKit;
 using Notification.Application.Handler;
 using Notification.Application.Logger;
@@ -25,18 +26,18 @@ namespace Notification.Application.Commands.Mail
 
     public class MailCommandHandler : LoggerRequestHandler<MailCommand, Unit>
     {
-        public MailCommandHandler(ILoggerManager logger, IEmailSettings emailSettings)
+        private readonly EmailSettings _emailSettings;
+
+        public MailCommandHandler(ILoggerManager logger, IOptions<EmailSettings> emailSettings)
             : base(logger)
         {
-            EmailSettings = emailSettings;
+            _emailSettings = emailSettings.Value;
         }
-
-        public IEmailSettings EmailSettings { get; set; }
 
         public async override Task<Unit> HandleInternalAsync(MailCommand request, CancellationToken cancellationToken)
         {
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(EmailSettings.Name, EmailSettings.Email));
+            message.From.Add(new MailboxAddress(_emailSettings.Name, _emailSettings.Email));
             message.To.Add(new MailboxAddress(request.User.UserName, request.User.UserEmail));
             message.Subject = $"{request.Book.Name} is free!";
             message.Body = new TextPart(MimeKit.Text.TextFormat.Html)
@@ -48,8 +49,8 @@ namespace Notification.Application.Commands.Mail
 
             using (var client = new SmtpClient())
             {
-                await client.ConnectAsync($"smtp.{EmailSettings.Email.Split('@')[1]}", 465, true);
-                await client.AuthenticateAsync(EmailSettings.Email, EmailSettings.Password);
+                await client.ConnectAsync($"smtp.{_emailSettings.Email.Split('@')[1]}", 465, true);
+                await client.AuthenticateAsync(_emailSettings.Email, _emailSettings.Password);
                 await client.SendAsync(message);
 
                 await client.DisconnectAsync(true);

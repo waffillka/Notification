@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using Notification.Contracts.Settings.MongoDb;
 using Notification.Data.Interfaces;
 using System;
@@ -14,11 +15,11 @@ namespace Notification.Data.DBContext
     {
         protected IMongoCollection<TEntity> _provider;
 
-        public MongoProvider(IDatabaseSettings settings, string nameTable)
+        public MongoProvider(IOptions<DatabaseSettings> settings, string nameTable)
         {
-            var connection = new MongoUrlBuilder(settings.ConnectionString);
-            MongoClient client = new MongoClient(settings.ConnectionString);
-            IMongoDatabase database = client.GetDatabase(settings.DatabaseName);
+            var connection = new MongoUrlBuilder(settings.Value.ConnectionString);
+            MongoClient client = new MongoClient(settings.Value.ConnectionString);
+            IMongoDatabase database = client.GetDatabase(settings.Value.DatabaseName);
             _provider = database.GetCollection<TEntity>(nameTable);
         }
 
