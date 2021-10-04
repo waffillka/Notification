@@ -4,6 +4,7 @@ using Notification.Contracts.Settings.MongoDb;
 using Notification.Data.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,6 +35,9 @@ namespace Notification.Data.DBContext
 
         public async Task<TEntity> Find(Guid id, CancellationToken ct = default) =>
             _provider.Find(sub => sub.Id == id).SingleOrDefault(ct);
+
+        public async Task<ICollection<TEntity>> Find(ICollection<Guid> ids, CancellationToken ct = default) =>
+            _provider.Find(x => ids.Contains(x.Id)).ToList(ct);
 
         public Task UpdateAsync(TEntity entity) =>
             _provider.ReplaceOneAsync(sub => sub.Id == entity.Id, entity);

@@ -13,6 +13,7 @@ namespace Notification.Data.DBContext
         Task<TEntity> CreateAsync(TEntity entity, CancellationToken ct = default);
         Task<ICollection<TEntity>> ReadAsync();
         Task<TEntity> Find(Guid id, CancellationToken ct = default);
+        Task<ICollection<TEntity>> Find(ICollection<Guid> ids, CancellationToken ct = default);
         Task Delete(Guid id, CancellationToken ct = default);
         Task<ICollection<TEntity>> GetByCondition(Expression<Func<TEntity, bool>> expression, CancellationToken ct = default);
         Task<TEntity> GetOneByCondition(Expression<Func<TEntity, bool>> expression, CancellationToken ct = default);
