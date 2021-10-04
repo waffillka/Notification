@@ -22,9 +22,9 @@ namespace Notification.Data.DBContext
             _provider = database.GetCollection<TEntity>(nameTable);
         }
 
-        public async Task<TEntity> CreateAsync(TEntity entity)
+        public async Task<TEntity> CreateAsync(TEntity entity, CancellationToken ct = default)
         {
-            _provider.InsertOneAsync(entity);
+            _provider.InsertOneAsync(entity, ct);
             return entity;
         }
 
@@ -43,6 +43,11 @@ namespace Notification.Data.DBContext
         public async Task<ICollection<TEntity>> GetByCondition(Expression<Func<TEntity, bool>> expression, CancellationToken ct = default)
         {
             return _provider.Find(expression).ToList(ct);
+        }
+
+        public async Task<TEntity> GetOneByCondition(Expression<Func<TEntity, bool>> expression, CancellationToken ct = default)
+        {
+            return _provider.Find(expression).SingleOrDefault(ct);
         }
     }
 }
