@@ -19,7 +19,7 @@ namespace Notification.Application.Consumer
 
         public async override Task ConsumeInternalAsync(ConsumeContext<Unsubscription> context)
         {
-            _mediator.Send(new UnsubscriptionCommand(context.Message));
+            await _mediator.Send(new UnsubscriptionCommand(context.Message));
         }
     }
 }

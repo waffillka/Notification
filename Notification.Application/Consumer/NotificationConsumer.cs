@@ -18,7 +18,7 @@ namespace Notification.Application.Consumer
 
         public async override Task ConsumeInternalAsync(ConsumeContext<Contracts.DataTransferObject.Broker.Notification> context)
         {
-            _mediator.Send(new NotificationCommand(context.Message));
+            await _mediator.Send(new NotificationCommand(context.Message));
         }
     }
 

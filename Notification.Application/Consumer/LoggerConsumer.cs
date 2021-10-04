@@ -16,7 +16,7 @@ namespace Notification.Application.Consumer
 
         public Task Consume(ConsumeContext<TMessage> context)
         {
-            _logger.LogInfo($"{typeof(TMessage)}");
+            _logger.LogInfo($"{typeof(TMessage)} message {context.Message}");
 
             return ConsumeInternalAsync(context);
         }
