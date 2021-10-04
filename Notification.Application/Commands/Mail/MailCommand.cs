@@ -38,12 +38,12 @@ namespace Notification.Application.Commands.Mail
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(_emailSettings.Name, _emailSettings.Email));
-            message.To.Add(new MailboxAddress(request.User.UserName, request.User.UserEmail));
+            message.To.Add(new MailboxAddress(request.User.Name, request.User.Email));
             message.Subject = $"{request.Book.Name} is free!";
             message.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
                 Text = $"{request.Book.Name} is free!\n" +
-                $"Dear {request.User.UserName}, at the moment the {request.Book.Name} is free, you can take."
+                $"Dear {request.User.Name}, at the moment the {request.Book.Name} is free, you can take."
             };
 
             using (var client = new SmtpClient())
