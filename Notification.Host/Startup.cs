@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Notification.Application.Logger;
+using Notification.Contracts.Settings.Mail;
 using Notification.Contracts.Settings.MongoDb;
 using Notification.Data.Configuration;
 using Notification.Host.Middleware;
@@ -30,6 +31,9 @@ namespace Notification.Host
 
             services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
             services.AddSingleton<IDatabaseSettings>(x => x.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+
+            services.Configure<EmailSettings>(Configuration.GetSection(nameof(EmailSettings)));
+            services.AddSingleton<IEmailSettings>(x => x.GetRequiredService<IOptions<EmailSettings>>().Value);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
