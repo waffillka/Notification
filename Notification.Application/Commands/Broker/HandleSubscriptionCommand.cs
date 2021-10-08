@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Commands.Broker
 {
-    public class SubscriptionCommand : IRequest
+    public class HandleSubscriptionCommand : IRequest
     {
-        public SubscriptionCommand(Subscription subscription)
+        public HandleSubscriptionCommand(Subscription subscription)
         {
             Subscription = subscription;
         }
@@ -19,7 +19,7 @@ namespace Notification.Application.Commands.Broker
         public Subscription Subscription { get; set; }
     }
 
-    public class SubscriptionCommandHandler : RequestHandlerBase<SubscriptionCommand, Unit>
+    public class SubscriptionCommandHandler : RequestHandlerBase<HandleSubscriptionCommand, Unit>
     {
         private readonly IBookRepository _bookRepository;
         private readonly IUserRepository _userRepository;
@@ -31,7 +31,7 @@ namespace Notification.Application.Commands.Broker
             _userRepository = userRepository;
         }
 
-        public async override Task<Unit> HandleInternalAsync(SubscriptionCommand request, CancellationToken ct)
+        public async override Task<Unit> HandleInternalAsync(HandleSubscriptionCommand request, CancellationToken ct)
         {
             var entityUser = await _userRepository.GetOneByCondition(x => x.Id == request.Subscription.UserId, ct);
             var entityBook = await _bookRepository.GetOneByCondition(x => x.Id == request.Subscription.BookId, ct);
