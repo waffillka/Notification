@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Handler
 {
-    public abstract class LoggerRequestHandler<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
+    public abstract class RequestHandlerBase<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
     {
         protected ILoggerManager _logger;
 
-        public LoggerRequestHandler(ILoggerManager logger)
+        public RequestHandlerBase(ILoggerManager logger)
         {
             _logger = logger;
         }

@@ -18,7 +18,7 @@ namespace Notification.Application.Commands.Broker
         public Contracts.DataTransferObject.Broker.Notification FreeBook { get; set; }
     }
 
-    public class NotificationHandler : LoggerRequestHandler<NotificationCommand, Unit>
+    public class NotificationHandler : RequestHandlerBase<NotificationCommand, Unit>
     {
         private readonly IBookRepository _bookRepository;
         private readonly IUserRepository _userRepository;

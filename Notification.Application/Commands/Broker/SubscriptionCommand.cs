@@ -19,7 +19,7 @@ namespace Notification.Application.Commands.Broker
         public Subscription Subscription { get; set; }
     }
 
-    public class SubscriptionCommandHandler : LoggerRequestHandler<SubscriptionCommand, Unit>
+    public class SubscriptionCommandHandler : RequestHandlerBase<SubscriptionCommand, Unit>
     {
         private readonly IBookRepository _bookRepository;
         private readonly IUserRepository _userRepository;

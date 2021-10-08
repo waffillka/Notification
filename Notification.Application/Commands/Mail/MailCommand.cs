@@ -24,7 +24,7 @@ namespace Notification.Application.Commands.Mail
 
     }
 
-    public class MailCommandHandler : LoggerRequestHandler<MailCommand, Unit>
+    public class MailCommandHandler : RequestHandlerBase<MailCommand, Unit>
     {
         private readonly EmailSettings _emailSettings;
 

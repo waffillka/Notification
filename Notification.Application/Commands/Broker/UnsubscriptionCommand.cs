@@ -18,7 +18,7 @@ namespace Notification.Application.Commands.Broker
         public Unsubscription Unsubscription { get; set; }
     }
 
-    public class UnsubscriptionCommandHandler : LoggerRequestHandler<UnsubscriptionCommand, Unit>
+    public class UnsubscriptionCommandHandler : RequestHandlerBase<UnsubscriptionCommand, Unit>
     {
         private readonly IBookRepository _bookRepository;
         private readonly IUserRepository _userRepository;
