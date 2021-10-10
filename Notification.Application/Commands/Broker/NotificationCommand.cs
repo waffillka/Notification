@@ -34,7 +34,7 @@ namespace Notification.Application.Commands.Broker
 
         public async override Task<Unit> HandleInternalAsync(NotificationCommand request, CancellationToken ct)
         {
-            var entityBook = await _bookRepository.GetOneByCondition(x => x.Id == request.FreeBook.BookId);
+            var entityBook = await _bookRepository.GetOneByBookId(request.FreeBook.BookId, ct);
             var entitiesUser = await _userRepository.Find(entityBook.Users, ct);
 
             foreach (var item in entitiesUser)
