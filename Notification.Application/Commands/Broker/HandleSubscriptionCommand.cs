@@ -33,8 +33,8 @@ namespace Notification.Application.Commands.Broker
 
         public async override Task<Unit> HandleInternalAsync(HandleSubscriptionCommand request, CancellationToken ct)
         {
-            var entityUser = await _userRepository.GetOneByCondition(x => x.Id == request.Subscription.UserId, ct);
-            var entityBook = await _bookRepository.GetOneByCondition(x => x.Id == request.Subscription.BookId, ct);
+            var entityUser = await _userRepository.GetOneByUserId(request.Subscription.UserId, ct);
+            var entityBook = await _bookRepository.GetOneByBookId(request.Subscription.BookId, ct);
 
             if (entityUser is null)
             {
