@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Consumer
 {
-    public abstract class LoggerConsumer<TMessage> : IConsumer<TMessage>
+    public abstract class BaseConsumer<TMessage> : IConsumer<TMessage>
         where TMessage : class
     {
         protected ILoggerManager _logger;
 
-        public LoggerConsumer(ILoggerManager logger)
+        public BaseConsumer(ILoggerManager logger)
         {
             _logger = logger;
         }

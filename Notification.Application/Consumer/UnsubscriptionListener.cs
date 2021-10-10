@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Consumer
 {
-    public class UnsubscriptionConsumer : LoggerConsumer<Unsubscription>
+    public class UnsubscriptionListener : BaseConsumer<Unsubscription>
     {
         private readonly IMediator _mediator;
 
-        public UnsubscriptionConsumer(IMediator mediator, ILoggerManager logger)
+        public UnsubscriptionListener(IMediator mediator, ILoggerManager logger)
             : base(logger)
         {
             _mediator = mediator;

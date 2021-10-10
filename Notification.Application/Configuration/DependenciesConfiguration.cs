@@ -22,9 +22,9 @@ namespace Notification.Service.Configuration
         {
             services.AddMassTransit(x =>
             {
-                x.AddConsumer<NotificationConsumer>();
-                x.AddConsumer<SubscriptionConsumer>();
-                x.AddConsumer<UnsubscriptionConsumer>();
+                x.AddConsumer<NotificationListener>();
+                x.AddConsumer<SubscriptionListener>();
+                x.AddConsumer<UnsubscriptionListener>();
                 x.SetKebabCaseEndpointNameFormatter();
                 x.UsingRabbitMq((context, cfg) =>
                 {

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Notification.Application.Consumer
 {
-    public class NotificationConsumer : LoggerConsumer<Contracts.DataTransferObject.Broker.Notification>
+    public class NotificationListener : BaseConsumer<Contracts.DataTransferObject.Broker.Notification>
     {
         private readonly IMediator _mediator;
 
-        public NotificationConsumer(IMediator mediator, ILoggerManager logger)
+        public NotificationListener(IMediator mediator, ILoggerManager logger)
             : base(logger)
         {
             _mediator = mediator;
