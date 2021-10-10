@@ -28,11 +28,6 @@ namespace Notification.Service.Configuration
                 x.SetKebabCaseEndpointNameFormatter();
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    //cfg.ReceiveEndpoint("event-listener", e =>
-                    //{
-                    //    e.ConfigureConsumer<EventConsumer>(context);
-                    //});
-
                     cfg.ConfigureEndpoints(context);
                 });
             });
