@@ -1,0 +1,8 @@
+﻿namespace Notification.Contracts.Settings.MongoDb
+{
+    public class DatabaseSettings
+    {
+        public string ConnectionString { get; set; }
+        public string DatabaseName { get; set; }
+    }
+}
